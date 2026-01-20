@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechParts Store - Quality Computer Components</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23667eea" width="1200" height="600"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Categories Section */
+        .categories {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .categories h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #667eea;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Products Section */
+        .products {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #667eea;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: #667eea;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #764ba2;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: #667eea;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .newsletter-form button {
+            padding: 12px 30px;
+            background: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Cart Counter */
+        .cart-count {
+            background: #ff4444;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🖥️ TechParts</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart">Cart <span class="cart-count" id="cartCount">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Build Your Dream PC</h1>
+        <p>Premium Computer Components at Unbeatable Prices</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <h2>Browse Categories</h2>
+        <div class="category-grid">
+            <div class="category-card" onclick="filterCategory('processors')">
+                <div class="category-icon">💻</div>
+                <h3>Processors</h3>
+                <p>Intel & AMD CPUs</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('graphics')">
+                <div class="category-icon">🎮</div>
+                <h3>Graphics Cards</h3>
+                <p>NVIDIA & AMD GPUs</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('memory')">
+                <div class="category-icon">🔲</div>
+                <h3>RAM</h3>
+                <p>DDR4 & DDR5 Memory</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('storage')">
+                <div class="category-icon">💾</div>
+                <h3>Storage</h3>
+                <p>SSDs & Hard Drives</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="products-container">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-info">
+                        <h3>Intel Core i9-13900K</h3>
+                        <p>24 Cores, 32 Threads, 5.8GHz Max</p>
+                        <div class="product-price">$589.99</div>
+                        <button class="add-to-cart" onclick="addToCart('Intel i9-13900K', 589.99)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🎮</div>
+                    <div class="product-info">
+                        <h3>NVIDIA RTX 4080</h3>
+                        <p>16GB GDDR6X, Ray Tracing</p>
+                        <div class="product-price">$1,199.99</div>
+                        <button class="add-to-cart" onclick="addToCart('RTX 4080', 1199.99)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🔲</div>
+                    <div class="product-info">
+                        <h3>Corsair Vengeance 32GB</h3>
+                        <p>DDR5 6000MHz, RGB</p>
+                        <div class="product-price">$149.99</div>
+                        <button class="add-to-cart" onclick="addToCart('Corsair RAM 32GB', 149.99)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💾</div>
+                    <div class="product-info">
+                        <h3>Samsung 980 PRO 2TB</h3>
+                        <p>NVMe SSD, 7000MB/s Read</p>
+                        <div class="product-price">$199.99</div>
+                        <button class="add-to-cart" onclick="addToCart('Samsung 980 PRO', 199.99)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-info">
+                        <h3>AMD Ryzen 9 7950X</h3>
+                        <p>16 Cores, 32 Threads, 5.7GHz</p>
+                        <div class="product-price">$549.99</div>
+                        <button class="add-to-cart" onclick="addToCart('AMD Ryzen 9', 549.99)">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">⚡</div>
+                    <div class="product-info">
+                        <h3>EVGA 850W Gold PSU</h3>
+                        <p>Fully Modular, 80+ Gold</p>
+                        <div class="product-price">$129.99</div>
+                        <button class="add-to-cart" onclick="addToCart('EVGA PSU 850W', 129.99)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Get exclusive deals and latest tech news!</p>
+        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#about">About Us</a>
+            <a href="#shipping">Shipping Info</a>
+            <a href="#returns">Returns</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+        </div>
+        <p>&copy; 2024 TechParts Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let cartItems = 0;
+
+        function addToCart(productName, price) {
+            cartItems++;
+            document.getElementById('cartCount').textContent = cartItems;
+            alert(`Added ${productName} to cart! ($${price})`);
+        }
+
+        function filterCategory(category) {
+            alert(`Filtering products by: ${category}`);
+        }
+
+        function subscribeNewsletter(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            alert(`Thank you for subscribing with: ${email}`);
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
